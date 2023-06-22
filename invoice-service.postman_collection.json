@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "54ace31d-3b4c-43ef-948c-1b865f16eaf0",
+		"name": "invoice-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21996059"
+	},
+	"item": [
+		{
+			"name": "create invoice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"items\": [\n        {\n            \"id\": \"item_1\",\n            \"description\": \"Truck\",\n            \"price\": 25000,\n            \"quantity\": 1\n        },\n        {\n            \"id\": \"item_2\",\n            \"description\": \"Fire item\",\n            \"price\": 5000,\n            \"quantity\": 2\n        }\n    ],\n    \"issuer_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/invoice",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"invoice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get invoice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/invoice/a654a192-7aa7-48ae-b888-e876e99785e2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"invoice",
+						"a654a192-7aa7-48ae-b888-e876e99785e2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get issuer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/issuer/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"issuer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get investors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/investor",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"investor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "place bid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"invoice_id\": \"a654a192-7aa7-48ae-b888-e876e99785e2\",\n    \"investor_id\": 2,\n    \"bid_amount\": 34500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/bid/place",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"bid",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get trades (status filter available)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/trade",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"trade"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "WAITING_APPROVAL",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "approve trade",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/trade/0aefe073-5786-4fdb-adac-ef2537e3a105?approved=false",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"trade",
+						"0aefe073-5786-4fdb-adac-ef2537e3a105"
+					],
+					"query": [
+						{
+							"key": "approved",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
