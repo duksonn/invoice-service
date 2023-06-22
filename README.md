@@ -16,10 +16,10 @@ Also, DDD was used to design data structs.
 ### External dependencies
 * _PostgreSQL_
 
-##1. API Definition
+## 1. API Definition
    The application provides an API with the following endpoints:
 
-###1.1. Create an Invoice
+### 1.1. Create an Invoice
 Endpoint: `POST /v1/invoice`
 
 Create a new invoice. The request body should contain the invoice details.
@@ -70,7 +70,7 @@ Create a new invoice. The request body should contain the invoice details.
 }
 ```
 
-###1.2. Get Invoice
+### 1.2. Get Invoice
 Endpoint: `GET /v1/invoice/{invoice_id}`
 
 Retrieve an invoice by its ID, including its current status and the investor who traded it (if applicable).
@@ -102,7 +102,7 @@ Retrieve an invoice by its ID, including its current status and the investor who
 ```
 _If the invoice has been purchased the investors_ids will appear in response._
 
-###1.3. Get Issuer
+### 1.3. Get Issuer
 Endpoint: `GET /v1/issuer/{issuer_id}`
 
 Retrieve information about an issuer, including their balance.
@@ -115,7 +115,7 @@ Retrieve information about an issuer, including their balance.
 }
 ```
 
-###1.4. Get Investors
+### 1.4. Get Investors
 Endpoint: `GET /v1/investor`
 
 Retrieve a list of all investors and their balances.
@@ -142,7 +142,7 @@ Retrieve a list of all investors and their balances.
 }
 ```
 
-###1.5. Place a Bid
+### 1.5. Place a Bid
 Endpoint: `POST /v1/bid/place`
 
 Place a bid to purchase an invoice. The request body should contain the details of the bid.
@@ -157,13 +157,13 @@ Place a bid to purchase an invoice. The request body should contain the details 
 ```
 #### Response 204 NoContent
 
-###1.6. Approve a Trade
+### 1.6. Approve a Trade
 Endpoint: `PUT /v1/trade/{trade_id}?approved=true`
 
 Approve a trade by specifying the trade ID and passing approved true for approvals or false for rejections.
 #### Response 204 NoContent
 
-###1.7. Get Trades
+### 1.7. Get Trades
 Endpoint: `GET /v1/trade or GET /v1/trade?status=WAITING_APPROVAL`
 
 Retrieve information about trades. Use the first endpoint to get a list of all trades and the second endpoint to get details about a specific status.
@@ -189,7 +189,7 @@ Only allowed status can be passed by query arg.
 
 _Please refer to the source code for more detailed information about request and response formats._
 
-##2. Getting Started
+## 2. Getting Started
 
 To run the application locally, follow these steps:
 
@@ -203,7 +203,7 @@ To run the application locally, follow these steps:
 
 _If any problem with configurations, please check `env_dev.json` file._
 
-##3. Running the tests
+## 3. Running the tests
 
 In order to run the project tests you need to execute the following command:
 
